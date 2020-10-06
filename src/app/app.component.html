@@ -1,1 +1,24 @@
-<button mat-flat-button  color="primary">click</button>
+<mat-toolbar color="primary">
+  <span>Family Morty by JC</span>
+</mat-toolbar>
+
+
+<main>
+  <mat-card>
+   
+      <mat-form-field appearance="fill">
+        <mat-label>Id Nombres</mat-label>
+        <mat-select  [(value)]="selectedFamilyId">
+          <mat-option *ngFor="let item of familyList"[value]="item.id">
+            {{item.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div *ngIf=selectedFamilyId>
+           <p> Select Family ID: {{selectedFamilyId}} </p>
+           <app-card></app-card>
+      </div>
+</mat-card>
+
+
+</main>
