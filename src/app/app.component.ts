@@ -308,6 +308,8 @@ export class AppComponent implements OnInit{
 
 //selectedFamilyId = this.familyList[0].id;
 selectedFamilyId = this.familyList[0];
+
+ListFamily = [];
  
 
  constructor(public datosService: DatosService) {
@@ -330,12 +332,17 @@ selectedFamilyId = this.familyList[0];
               // if (datos.hasOwnProperty(key))
               //   this.nombreId.push(datos[key])
               // for (let key in this.character.results)
-              //      console.log(key)
+              this.ListFamily = this.generateArray(datos);
+                 console.log(this.ListFamily[1]);
               
     },
     err => console.log(err)
   )
  }
+
+ generateArray(obj){
+   return Object.keys(obj).map((key)=>{ return obj[key]});
+}
 
 
 }

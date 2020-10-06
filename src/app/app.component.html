@@ -9,20 +9,14 @@
       <mat-form-field appearance="fill">
         <mat-label>Id Nombres</mat-label>
         <mat-select  [(value)]="selectedFamilyId">
-          <mat-option *ngFor="let item of familyList"[value]="item">
+          <mat-option *ngFor="let item of ListFamily[1]"[value]="item">
+            <!-- <mat-option *ngFor="let item of familyList"[value]="item"> -->
             {{item.name}}
           </mat-option>
         </mat-select>
       </mat-form-field>
       <div *ngIf=selectedFamilyId>
-           <!-- <p> Select Family ID: {{selectedFamilyId.id}} </p>
-           <p> Select Family Name: {{selectedFamilyId.name}} </p>
-           <p> Select Family Status: {{selectedFamilyId.status}} </p>
-           <p> Select Family Specie: {{selectedFamilyId.species}} </p>
-           <p> Select Family Gener: {{selectedFamilyId.gender}} </p>
-           <p> Select Family Origin: {{selectedFamilyId.origin}} </p> -->
-
-
+        
            <mat-card class="example-card">
             <mat-card-header>
               <mat-card-title>ID:{{selectedFamilyId.id}} - Nombre {{selectedFamilyId.name}}</mat-card-title>
