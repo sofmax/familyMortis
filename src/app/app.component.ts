@@ -4,6 +4,9 @@ import { Family } from './models/Family';
 import { Character} from './models/Character';
 import { DatosService } from './services/datos.service'
 
+import { FormControl, Validators} from '@angular/forms';
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,6 +15,7 @@ import { DatosService } from './services/datos.service'
 export class AppComponent implements OnInit{
  // title = 'familiaMorty';
 
+ selectFormControl = new FormControl('', Validators.required);
  
  nombreId= [];
  familyJson = [];
@@ -302,7 +306,10 @@ export class AppComponent implements OnInit{
   }
 ];
 
-selectedFamilyId = this.familyList[0].id;
+//selectedFamilyId = this.familyList[0].id;
+selectedFamilyId = this.familyList[0];
+
+ListFamily = [];
  
 
  constructor(public datosService: DatosService) {
@@ -325,12 +332,17 @@ selectedFamilyId = this.familyList[0].id;
               // if (datos.hasOwnProperty(key))
               //   this.nombreId.push(datos[key])
               // for (let key in this.character.results)
-              //      console.log(key)
+              this.ListFamily = this.generateArray(datos);
+                 console.log(this.ListFamily[1]);
               
     },
     err => console.log(err)
   )
  }
+
+ generateArray(obj){
+   return Object.keys(obj).map((key)=>{ return obj[key]});
+}
 
 
 }
